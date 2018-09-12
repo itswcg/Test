@@ -18,3 +18,18 @@ def make_averager():
         return total / len(series)
 
     return averager
+
+def make_averager():
+    count = 0
+    total = 0
+
+    def averager(new_value):
+        nonlocal count, total
+        count += 1
+        total += new_value
+        return total / count
+
+    return averager
+
+# nonlocal 把变量标记为自由变量，就是使用外层变量(非全局)
+# global 全局变量
